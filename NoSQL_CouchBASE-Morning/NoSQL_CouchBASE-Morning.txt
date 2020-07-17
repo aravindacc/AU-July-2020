@@ -1,0 +1,25 @@
+Tasks: Send me Queries for the following
+1. Find all hotels with ratings for Cleanliness>=4.
+    select id, name
+    from `travel-sample` 
+    where type = "hotel" 
+    and ARRAY_MIN(reviews[*].ratings[*].Cleanliness) >= 4;
+
+2. Find the highest airport in each country.
+    select max(geo.alt) as height, country
+    from `travel-sample` 
+    where type = "airport" group by country;
+
+3. Find all routes operated by Air France from the city of Marseille. (use field faa).
+    select a.destinationairport, a.sourceairport, a.schedule[*].flight 
+    from `travel-sample` a
+    where a.airline IN (select RAW iata from `travel-sample` where name = "Air France")
+    and a.sourceairport IN (select RAW faa from `travel-sample` where city = "Marseille");
+--------------------------
+    select a.destinationairport, a.sourceairport, a.schedule[*].flight 
+    from `travel-sample` a
+    join (select q1, q2 
+        Let q1 = (select RAW iata from `travel-sample` where name = "Air France")[0], 
+        q2 = (select RAW faa from `travel-sample` where city = "Marseille")[0]) b
+    on a.airline = b.q1
+    and a.sourceairport = b.q2;
