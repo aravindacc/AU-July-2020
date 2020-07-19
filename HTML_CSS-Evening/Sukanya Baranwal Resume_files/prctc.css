@@ -1,0 +1,128 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+i {
+    list-style: none;
+    font-size: 30px;
+    border-radius: 400px;
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 0px;
+    color: #2c3e50;
+}
+    
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:rgb(194, 86, 86);
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+    
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+    
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(194, 86, 86);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}
+    
+.main {
+    height: 1500px;
+    margin-left: 250px;
+    font-size: 28px;
+    padding: 0px 10px;
+    margin-top: 150px;
+}
+    
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.5;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+.container-fluid{
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+section.resume-section {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    max-width: 75rem;
+}
+section.resume-section .resume-section-content {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    section.resume-section {
+        min-height: 100vh;
+    }
+}
+@media (min-width: 992px) {
+    section.resume-section {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
