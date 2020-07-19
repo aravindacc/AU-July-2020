@@ -1,0 +1,4 @@
+SELECT DISTINCT(t.name)
+FROM `travel-sample` as t
+UNNEST t.reviews as item
+WHERE t.type="hotel" AND item.ratings.Cleanliness>=4 ;
