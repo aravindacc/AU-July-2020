@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>RegEx Check</h3>
+
+<input type="text" id="myText" value="">
+
+<button onclick="myFunction()">RegEx</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myText").value;
+  var patt = /^(hot|dot|not).*(ho+t|do+t|no+t)$/;
+  var result = patt.exec(x);
+  if (result == null){
+    document.getElementById("demo").innerHTML = 'Not matched';
+  }
+  document.getElementById("demo").innerHTML = 'Matched: ' + result[0];
+}
+</script>
+
+</body>
+</html>
