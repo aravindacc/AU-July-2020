@@ -1,0 +1,57 @@
+<html>
+      <head>
+            <title>Third</title>
+      </head>
+      <body>
+            <form>
+                  RgeExp : <input type="text" size="50" id="regex_input"/>
+                  <input type="button" value="Check RegExp" onclick="regex_check()"/>
+                  <br>
+                  <p>Start: hot dot not</p>
+                  <p>Middle:Any| Null</p>
+                  <p>End: hot doot noooot</p>                
+            </form>         
+            <br>
+            <hr>
+            <br>
+            <form>
+                  Array : <input type="text" size="50" id="arr_input"/>
+                  <input type="button" value="Check Array" onclick="array_check()"/>
+                  <br>
+                  <p>seperated by comma (,) </p>   
+                  <p id="array_result"></p>          
+            </form>
+            <script>
+                  function regex_check()
+                  {
+                        let str = document.getElementById('regex_input').value;
+                        let reg = /^[hnd]ot.*[hnd]o+t$/
+                        alert(reg.test(str));
+                  }
+
+                  function array_check()
+                  {
+                        let str = document.getElementById('arr_input').value;
+                        let arr = str.split(',').map((item)=> parseInt(item));
+                        
+                        let result = document.getElementById('array_result');
+                        result.innerText = "Given Array : " +arr+"\n\n";
+
+                        result.innerText += "Sorted Array : " +arr.sort((a,b)=>{return a-b })+"\n\n";
+                        //sort() - perform for string comparision
+                        // sort((a,b)=>{return a-b }) for integer comparision
+
+                        let filtered_arr = arr.filter((item)=> item > 10 );
+                        result.innerText += "Filtered Array : " +filtered_arr+"\n\n";
+                        
+                        let oneplus_arr = filtered_arr.map((item)=> item + 1  )
+                        result.innerText += "Add 1 Array : " +oneplus_arr+"\n\n";
+                        
+                        let slice_arr = oneplus_arr.slice(1,5); 
+                        // assuming from  1 to 4 , 1 and 4 are included  
+                        result.innerText += "Add 1 Array : " +slice_arr+"\n";
+
+                  }
+            </script>
+      </body>
+</html>
