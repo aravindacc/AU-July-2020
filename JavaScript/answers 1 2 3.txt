@@ -1,0 +1,87 @@
+Ans 1
+
+var array=[5,19,32,53,23,11,45,2,3,23,43]
+
+1. concat() 
+	array.concat(4)= [5, 19, 32, 53, 23, 11, 45, 2, 3, 23, 43, 4]
+
+2. every() 
+	const lessthan60=(arrvalue)=>arrvalue<60; array.every(lessthan60);   true
+
+3. filter()
+	array.filter(lessthan60)=[5, 19, 32, 53, 23, 11, 45, 2, 3, 23, 43]
+
+4. forEach()
+	array.forEach(ele=>console.log(ele+1));
+	=6 20 33 54 24 12 46 3 4 24 44
+
+5. IndexOf()
+	array.indexOf(45)  = 6
+
+6. join()
+	array.join()= "5,19,32,53,23,11,45,2,3,23,43"
+
+7. lastIndexOf()
+	array.lastIndexOf(11) =5
+
+8. map()
+	array.map(x=>x+2)     =  [7, 21, 34, 55, 25, 13, 47, 4, 5, 25, 45]
+
+9. pop()
+	array.pop();  = 43
+
+10. push()
+	array.push(11) =10
+
+11. reduce()
+	function subtract(total, num) {
+  		return total - num;
+	} 
+	= -194
+
+12. reduceRight()
+	array.reduceRight(subtract);
+	= -182
+
+13. reverse()
+	array.reverse(); = [11, 3, 2, 45, 11, 23, 53, 32, 19, 5]
+
+14. shift()
+	array.shift() = 11
+
+15. slice()
+	array.slice(2,6)= [2, 45, 11, 23]
+
+16. some()
+	array.some(greaterthan15) = true
+
+17. sort()
+	array.sort();  = [11, 19, 2, 23, 23, 3, 32, 43, 45, 5, 53]
+
+18. splice()
+	array.splice(3,5) = [23, 23, 3, 32, 43]
+
+19. toString()
+	array.toString() = "11,19,2,23,23,3,32,43,45,5,53"
+
+20. unShift()
+	array.unshift() = 11
+
+
+
+
+Ans 2:  var add =( function(){
+                    	var counter=0;
+                        return function(){ return counter+=1;}
+                  })()
+                  add();
+                  add();
+                  add();
+
+	In case of self invoking function the inner funtion is invoked or referenced. variable is assigned once after 
+	only inner function works here. So on calling add function three times it increments the value to 3.
+
+Ans 3: The '\n' is the "Line Feed" and '\r' is the carriage return. a \n was used to move the carriage down, while the \r was used to move the carriage back to the left side of the page.
+	Different operating systems will handle new lines in a different way, such as
+	Windows  '\r\n'  is used
+	Linux\Unic '\n'
