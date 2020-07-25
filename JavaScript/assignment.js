@@ -2,7 +2,7 @@ var regexstring;
 function getRegex()
 {
     regexstring=document.getElementById("regex").value;
-    reg=/^[hdn]ot.*[hdn]o*t$/
+    reg=/^[hdn]ot.*[hdn]o+t$/
 
     //document.write(reg.test(regexstring));
     alert(reg.test(regexstring))
