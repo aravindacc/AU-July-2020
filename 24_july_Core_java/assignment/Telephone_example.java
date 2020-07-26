@@ -3,18 +3,19 @@ package assignment;
 
 interface Telephone
 {
-    public void dial();
-    public void recieve();
-    public void cutCall();
-    public void ring();
-    public void putOnHold();
-    public void putOffHold();
-    public void pressNumber();
-    public void pickUp();
-    public boolean isConnected();
-    public boolean isPickedUp();
-    public boolean isOnHold();
-    public boolean isIdle();
+    public void dial();  // dialing call  all 10 digit
+    public void recieve(); // recieving call
+    public void cutCall(); // cutting call - put back holder of telephone
+    public void ring();   // ringing 
+    public void putOnHold(); // put on hold
+    public void putOffHold(); // put back from hold
+    public void pressNumber(); // pressing each number to dial - single digit
+    public void pickUp();   // pickup the holder of telephone
+
+    public boolean isConnected(); // check is connected to call
+    public boolean isPickedUp(); // holder is pickedup or not 
+    public boolean isOnHold(); // telephone is on hold or not
+    public boolean isIdle(); // telephone is idle 
 }
 
 class BSNL_telephone implements Telephone

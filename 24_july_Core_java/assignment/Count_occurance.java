@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package assignment;
 
 import java.io.*;
@@ -18,13 +14,27 @@ public class Count_occurance {
         System.out.println("Enter String paragraph : ");
         String paragraph = sc.nextLine();
        
-        HashMap count = new HashMap<Character,Integer >(); 
+        // create HashMap to keep record of occurance 
+        HashMap count = new HashMap<Character,Integer>(); 
+
+
+        // for loop for each character in paragraph string 
         for (char c : paragraph.toCharArray()) {
+        
+            // get occurance of character of string in hashmap 
+            // it will return null if character is not present before in hashmap
             Integer occur = (Integer) count.get(c);
+
+
+            // if occurance of character  is null, make it zero
             if(occur==null)
                 occur = 0;
+
+            // put back incresed occurance in hashmap
             count.put(c, (occur+1));
         }
+
+        //printing hashmap 
         System.out.println(count.entrySet());
     }
     
