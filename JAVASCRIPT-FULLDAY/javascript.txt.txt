@@ -1,0 +1,35 @@
+var str1;
+function fun1()
+{
+    str=document.getElementById("reg").value;
+    reg=/^[hdn]ot.*[hdn]o+t$/;
+
+   alert(reg.test(str1))
+
+}
+
+
+var str2;
+function fun2()
+{
+   
+    str2= document.getElementById("input").value;
+    var n=str2.length;
+
+    var arr = str2.split(" ").map(function(i){
+        return parseInt(i);
+    });
+
+    arr=arr.sort();
+  
+
+    var arr =arr.filter(item=>item>10);
+   
+    for (var i = 0; i < arr.length; i++){
+       arr[i]++;
+    }
+  
+    var arr=arr.slice(1,5);
+   alert(spliced+ " ");
+  
+}

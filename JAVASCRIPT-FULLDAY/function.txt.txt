@@ -1,0 +1,32 @@
+var add = ( function(){ var counter=0; return function() { return counter+=1;}})() ;
+add();
+add();
+add();
+var arr=[11,8,10,22,24,87,67]
+  arr= arr.concat(22)
+  console.log(arr) 
+  const isgreaterthan8= (currentValue) => currentValue >8;
+  arr.every(isgreaterthan8)
+arr=arr.filter(isgreaterthan8)
+ console.log(arr)
+ arr.forEach(element => console.log(element+1));
+ console.log(arr.indexOf(12)) 
+ arr.join()
+ var arr2=[32,52,33,5,4,12,13]
+ arr2.lastIndexOf(12)
+ console.log(arr2.map(x=>x*2))
+ console.log(arr2.pop())
+ console.log(arr2.push(2))
+ function subtract(total, num) {
+  return total - num;
+}
+console.log(arr2.reduce(subtract))
+console.log(arr2.reduceRight)
+console.log(arr2.reverse())
+console.log(arr2.shift())
+console.log(arr2.slice(1,4))
+console.log(arr2.some(isgreaterthan8))
+console.log(arr2.sort())
+console.log(arr2.toString())
+
+console.log(arr2.unshift())
