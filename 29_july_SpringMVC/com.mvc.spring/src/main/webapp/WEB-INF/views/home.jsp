@@ -13,16 +13,20 @@
     </head>
     <body>	
 	    <div class="header">
-	    <a href="/com.mvc.spring/StudentList" class="btn">All data</a>
+	    <a href="/com.mvc.spring/StudentList" class="btn">Student List</a>
 	    </div>
 	    <div class="body">
 		   	 <h1 class="w-100">Add Student</h1>
 	        
-	        <form action="/com.mvc.spring/welcome" method="post">
+	        <form action="/com.mvc.spring/insert" method="post">
         		<label>Roll number</label><br>
-	        	<input type="text" name="id" class="textbox"  required/><BR>
-	        	<label>Name</label><br>
-	        	<input type="text" name="name"  class="textbox"  required /><br>
+	        	<input type="number" name="id" class="textbox"  required="true" /><BR>
+	        	<label>First Name</label><br>
+	        	<input type="text" name="firstname"  class="textbox"  required="true" /><br>
+	        	<label>Last Name</label><br>
+	        	<input type="text" name="lastname"  class="textbox"  required="true" /><br>
+	        	<label>Department</label><br>
+	        	<input type="text" name="dept"  class="textbox"  required="true" /><br>
 	        	<input type="submit" value="Add Student" class="btnsbmt"/>
 	        </form>
 	    </div>

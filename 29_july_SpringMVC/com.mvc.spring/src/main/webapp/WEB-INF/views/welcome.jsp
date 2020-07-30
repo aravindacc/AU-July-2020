@@ -11,12 +11,12 @@
     </head>
     <body>
 	    <div class="header">
-	    <a href="/com.mvc.spring/" class="btn">Add Student</a>
-	    <a href="/com.mvc.spring/StudentList" class="btn">All data</a>
+	    <a href="/com.mvc.spring/" class="btn">Home</a>
+	    <a href="/com.mvc.spring/StudentList" class="btn">Student List</a>
 	    </div>
 	    
 	    <div class="body">
-	        <h1>Hello  ${name} </h1>
+	        <h1>Hello  ${firstname} </h1>
 	        <p>Welcome to Spring MVC....</p>
         </div>
     </body>

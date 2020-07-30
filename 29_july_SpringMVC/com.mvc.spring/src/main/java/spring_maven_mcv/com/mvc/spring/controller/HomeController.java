@@ -27,7 +27,7 @@ public class HomeController {
 	StudentService studentservice;
 	
 	@RequestMapping(value="/")
-	public ModelAndView test(HttpServletResponse response) throws IOException{
+	public ModelAndView home(HttpServletResponse response) throws IOException{
 		return new ModelAndView("home");
 	}	
 	
@@ -39,15 +39,41 @@ public class HomeController {
 		model.addObject("list",list);
 		return model;
 	}	
-	
-	@RequestMapping(value="/welcome", method = RequestMethod.POST)
-	public ModelAndView home(@RequestParam("id") int id,@RequestParam("name") String name) throws Exception{		
-		if(!studentservice.insert(new Student(id,name)))
+
+	@RequestMapping(value="/insert", method = RequestMethod.POST)
+	public ModelAndView welcome(@RequestParam("id") int id,@RequestParam("firstname") String firstname,@RequestParam("lastname") String lastname,@RequestParam("dept") String dept) throws Exception{		
+		if(!studentservice.insert(new Student(id,firstname,lastname,dept)))
 			throw new StudentWithSameRollnumber(id);
 		ModelAndView model = new ModelAndView("welcome");
 		model.addObject("id",id);
-		model.addObject("name",name);
+		model.addObject("firstname",firstname);
 		return model;
+	}
+
+	@RequestMapping(value="/update", method = RequestMethod.POST)
+	public ModelAndView update(@RequestParam("id") int id,@RequestParam("firstname") String firstname,@RequestParam("lastname") String lastname,@RequestParam("dept") String dept) throws Exception{		
+		if(!studentservice.update(id, new Student(id,firstname,lastname,dept)))
+			throw new StudentWithSameRollnumber(id);
+		ModelAndView model = new ModelAndView("welcome");
+		model.addObject("id",id);
+		model.addObject("firstname",firstname);
+		return model;
+	}
+	
+	@RequestMapping(value="/update/{id}")
+	public ModelAndView updateItem(@PathVariable int id) throws Exception
+	{
+		Student obj  = studentservice.getStudent(id);
+		if(obj == null)
+			throw new StudentNotFound(id);
+		
+		ModelAndView model = new ModelAndView("update");
+		model.addObject("id",obj.getId());
+		model.addObject("firstname",obj.getFirstname());
+		model.addObject("lastname",obj.getLastname());
+		model.addObject("dept",obj.getDept());
+		return model;
+		
 	}
 	
 	@RequestMapping(value="/delete/{id}")
@@ -58,38 +84,5 @@ public class HomeController {
 		return new ModelAndView("redirect:/StudentList");
 	}
 	
-	@ExceptionHandler(StudentNotFound.class)
-	public ModelAndView handleStudentNotFound(HttpServletRequest req, Exception ex)
-	{
-		
-		ModelAndView modelAndView = new ModelAndView();
-	    modelAndView.addObject("exception", ex);
-	    modelAndView.addObject("url", req.getRequestURL());
-	    
-	    modelAndView.setViewName("error");
-	    return modelAndView;		
-	}
-	
-	@ExceptionHandler(StudentWithSameRollnumber.class)
-	public ModelAndView handleStudentWithSameRollnumber(HttpServletRequest req, Exception ex)
-	{
-		
-		ModelAndView modelAndView = new ModelAndView();
-	    modelAndView.addObject("exception", ex);
-	    modelAndView.addObject("url", req.getRequestURL());	    
-	    modelAndView.setViewName("error");
-	    return modelAndView;		
-	}
-	
-	@ExceptionHandler(Exception.class)
-	public ModelAndView handleException(HttpServletRequest req, Exception ex)
-	{
-		
-		ModelAndView modelAndView = new ModelAndView();
-	    modelAndView.addObject("exception", ex);
-	    modelAndView.addObject("url", req.getRequestURL());	    
-	    modelAndView.setViewName("error");
-	    return modelAndView;		
-	}
 
 }

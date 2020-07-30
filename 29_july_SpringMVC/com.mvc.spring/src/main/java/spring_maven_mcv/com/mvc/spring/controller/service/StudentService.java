@@ -22,6 +22,27 @@ public class StudentService {
 		return true;
 	}
 	
+	public Student getStudent(int id)
+	{
+		for (Student student : list) {
+			if(student.getId() == id)
+			{
+				System.out.println("found");
+				return student;
+			}
+		}
+		return null;
+	}
+	
+	public boolean update(int id, Student obj)
+	{
+		if(delete(id))
+		{
+			insert(obj);
+			return true;
+		}
+		return false;
+	}
 	
 	public boolean delete(int id)
 	{
@@ -34,6 +55,8 @@ public class StudentService {
 		}
 		return false;
 	}
+	
+	
 	
 	public ArrayList<Student> getAlldata()
 	{

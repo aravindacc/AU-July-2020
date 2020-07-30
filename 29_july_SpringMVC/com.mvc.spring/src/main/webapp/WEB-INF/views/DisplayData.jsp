@@ -18,10 +18,12 @@
 	    <div class="body">
 	    <table>
 	    <tr>
-		    <th>Roll#
-		    </th>
+		    <th>Roll#</th>
+		    <th>First Name</th>
+		    <th>Last Name</th>
+		    <th>Department</th>
 		    <th>
-		    Student Name
+		    &nbsp;
 		    </th>
 		    <th>
 		    &nbsp;
@@ -29,8 +31,13 @@
 	    </tr>
 	    
           <c:forEach var="student" items="${list}">   
-          	<tr> <td>${student.id }</td> <td>${student.name }</td>
-          	 <td><a href="./delete/${student.id}" class="btnsbmt">delete</a></td> </tr>
+          	<tr> <td>${student.id }</td> 
+          	<td>${student.firstname }</td>
+          	<td>${student.lastname }</td>
+          	<td>${student.dept }</td>
+          	 <td><a href="./update/${student.id}" class="btnsbmt">Edit</a> </td>
+          	  <td><a href="./delete/${student.id}" class="btnsbmt">delete</a> </td>
+          	   </tr>
           </c:forEach>     
           
 	    </table>
