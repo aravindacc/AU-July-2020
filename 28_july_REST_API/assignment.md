@@ -23,4 +23,4 @@
   - Note : id is path parameter
 
 
-please, update mysql database connection in DBservice module contsructor().
+please, update **mysql database** connection in DBservice module contsructor(). It will automatically create schema and table in database. 
