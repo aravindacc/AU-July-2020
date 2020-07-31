@@ -21,3 +21,6 @@
   - http://localhost:9090/Rest_api_todo/rest/Todo/delete/40
   - ```{"result":"deleted successfully"}```
   - Note : id is path parameter
+
+
+please, update mysql database connection in DBservice module contsructor().
