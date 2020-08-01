@@ -1,0 +1,15 @@
+Assignment RestApi :Build Todo App.
+
+1. I implement two method i.e(Post,Get)
+2. I used spring boot framework.
+
+
+
+Steps to run:-
+i) Open the project "RestApi" into intellij Idea.
+ii) Run the server.
+iii) Goto the postman, and add the link "http://localhost:8080/todo" and select the method.
+iv) Get method produce the current list of todo.
+v) for Post method: In Queryparam
+a)key = id,name = Description of todo.
+
