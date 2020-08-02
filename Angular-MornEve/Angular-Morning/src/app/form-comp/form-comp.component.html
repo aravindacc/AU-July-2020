@@ -1,0 +1,40 @@
+<div>
+    <span>Details</span>
+</div>
+
+<form [formGroup]="profileForm" class="normal-form" (submit)="onSubmit()">
+    <div class="controles-container">
+        <input type="hidden">
+        <!-- formControlName="$key" -->
+        <div>
+        <mat-form-field>
+            <input formControlName="empId" matInput [(ngModel)]="itemInput.empId" placeholder="Emp Id*">
+            <mat-error>This field is mandatory(Max 2 digits).</mat-error>
+        </mat-form-field>
+        </div><div>
+        <mat-form-field>
+            <input formControlName="firstName" matInput [(ngModel)]="itemInput.firstName" placeholder="First Name*">
+            <mat-error>This field is mandatory(Max 20 characters).</mat-error>
+        </mat-form-field>
+        </div><div>
+        <mat-form-field>
+            <input formControlName="lastName" matInput [(ngModel)]="itemInput.lastName" placeholder="Last Name*">
+            <mat-error>This field is mandatory(Max 20 characters).</mat-error>
+        </mat-form-field>
+        </div><div>
+        <mat-form-field>
+            <input formControlName="age" matInput [(ngModel)]="itemInput.age" placeholder="Age">
+        </mat-form-field>
+        </div><div>
+        <mat-form-field>
+            <input formControlName="city" matInput [(ngModel)]="itemInput.city" placeholder="City">
+        </mat-form-field>
+        </div>
+    </div>
+    <div class="button-row">
+        <button mat-raised-button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </div>
+</form>
+<div>
+    <button mat-raised-button style="margin-left: 20px;" (click)="onClose()">Close</button>
+</div>

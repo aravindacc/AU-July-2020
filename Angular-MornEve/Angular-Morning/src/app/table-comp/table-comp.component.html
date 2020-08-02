@@ -3,27 +3,19 @@
   <span>
     <h4>Data Table</h4>
     <p>For sorting, click on the fields(Column name).</p>
-    <button style="margin: 10px; "  > Add </button> 
-    <!-- (click) = "addInTable()" -->
-    <!-- (click)="openFormTableComp()" -->
-    <button style="margin: 10px; " (click) = "resetTable();" > Reset </button>
-    
+    <button mat-raised-button (click)="openDialog();"> Add </button>
+    <button (click) = "resetTable();" > Reset </button>
   </span>
 </div>
 
-<!-- <p>sibling1 component!</p>
-<button (click)="clickMe()">Click Me</button> -->
-
-<app-form-comp></app-form-comp>
-
-<table id="myTable" class="table table-striped">
-  <thead>
+<table id="myTable" class="table table-striped" style="width: 50%;">
+  <thead >
     <tr>
-      <th (click)="sortTable(0)">Emp Id</th>
-      <th (click)="sortTable(1)">First Name</th>
-      <th (click)="sortTable(2)">Last Name</th>
-      <th (click)="sortTable(3)">Age</th>
-      <th (click)="sortTable(4)">City</th>
+      <th (click)="sortTable(0)" class="pointer">Emp Id</th>
+      <th (click)="sortTable(1)" class="pointer">First Name</th>
+      <th (click)="sortTable(2)" class="pointer">Last Name</th>
+      <th (click)="sortTable(3)" class="pointer">Age</th>
+      <th (click)="sortTable(4)" class="pointer">City</th>
       <th>Update</th>
       <th>Delete</th>
     </tr>
@@ -36,7 +28,7 @@
     <td>{{ el.age | number }}</td>
     <td>{{ el.city }}</td>
     <td style="text-align: center;">
-      <button type="button" color="danger" rounded="true" size="sm" class="my-0" (click)="editRecord(el.empId)"> Update </button>
+      <button type="button" color="danger" rounded="true" size="sm" class="my-0" (click)="editRecord(el)"> Update </button>
     </td>
     <td style="text-align: center;">
         <button type="button" color="danger" rounded="true" size="sm" class="my-0" (click)="deleteFromSession(el.empId)">
