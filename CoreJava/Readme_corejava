@@ -1,0 +1,7 @@
+Step to Run file.
+1. open the project in intellij.
+2. In src there are three java files.
+i).Singleton.java for sigleton class example.
+ii).stringCount.java for counting occurence of word in given string.
+iii).Telephone.java for object,propert and method of telephone.
+
