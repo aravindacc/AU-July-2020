@@ -1,0 +1,58 @@
+
+<h1 style="text-align: center;">EMPLOYEE DETAILS</h1>
+<h1 style="color: antiquewhite;">EXISTING USER</h1>
+<table style="width:100%">
+  <tr>
+    <th (click)="sort1()">Firstname</th>
+    <th (click)="sort2()">Lastname</th>
+    <th (click)="sort3()">City</th>
+    <th (click)="sort4()"> Age</th>
+    <th (click)="sort5()">ID</th>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>{{item.fname}}</td>
+    <td>{{item.lname}}</td>
+    <td>{{item.city}}</td>
+    <td>{{item.age}}</td>
+    <td>{{item.id}}</td>
+  </tr>
+  
+</table>
+<br>
+<br>
+<br>
+<h1>ADD USER</h1>
+
+  <input  [(ngModel)]="information.fname" type="text" placeholder="FirstName" >
+  <input  [(ngModel)]="information.lname" type="text" placeholder="Lastname"  >
+  <input  [(ngModel)]="information.city" type="text" placeholder="City" >
+  <input  [(ngModel)]="information.age" type="text" placeholder="Age" >
+  <input  [(ngModel)]="information.id" type="text" placeholder="Id">
+  <button (click)="add()">ADD USER</button>
+
+
+  <h1>
+    DELETE USER
+  </h1>
+  <input type ="text" placeholder="EMPLOY ID" #ref>
+    <button (click)="delete(ref.value)" >DELETE</button>
+
+
+<!-- <input type="text" [(ngModel)]="name">
+<button (click)="onclick()">check</button>
+<p>{{name}}</p> -->
+<!-- <h1>{{count}}</h1>
+<button (click)="onclick()">+</button> -->
+<!-- <input type ="text"  #ref (keyup)="fun(ref.value)">
+<p>{{name}}</p> -->
+<h1>UPDATE USER</h1>
+<label>Enter the employ Id:</label>
+  <input  [(ngModel)]="newinformation.id" type="text" placeholder="Id">
+<h3> Enter the new Details</h3>
+  <input  [(ngModel)]="newinformation.fname" type="text" placeholder="FirstName" >
+  <input  [(ngModel)]="newinformation.lname" type="text" placeholder="Lastname"  >
+  <input  [(ngModel)]="newinformation.city" type="text" placeholder="city" >
+  <input  [(ngModel)]="newinformation.age" type="text" placeholder="Age" >
+
+
+  <button (click)="update()">UPDATE</button>
