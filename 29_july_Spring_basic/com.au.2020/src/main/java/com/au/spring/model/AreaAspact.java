@@ -14,6 +14,7 @@ public class AreaAspact {
 	public void Aroundfunction(ProceedingJoinPoint pjp)
 	{
 		System.out.println("before calling Area function ");
+		System.out.println("Join Point : " + pjp.getSignature().getName());
 		try {
 			pjp.proceed();
 		} catch (Throwable e) {
