@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
+
+
+
+namespace LINQ_Assignment
+{
+
+    class q1
+    {
+
+
+        public void count()
+        {
+            string str = "";
+            Console.Write("Enter Input String: ");
+            str = Console.ReadLine();
+            char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+
+            int count = str.Count(x => vowels.Contains(x));
+            Console.Write("Number of Vowels: " + count);
+        }
+
+    }
+
+    class q2
+    {
+        public void count_of_patern()
+        {
+            Console.WriteLine("Enter the Number of Students: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] student = new string[n];
+            Console.WriteLine("Enter the Names of the Students: ");
+            for (int i = 0; i < n; i++)
+            {
+                student[i] = Console.ReadLine();
+            }
+            Console.WriteLine("Students Names with 'an' in it:");
+            IEnumerable<string> match = student.Where(x => x.Contains("an"));
+            int flag = 0;
+            foreach (string item in match)
+            {
+                flag = 1;
+                Console.WriteLine(item);
+            }
+            if (flag == 0)
+                Console.WriteLine("No Such string is present");
+        }
+    }
+       
+        class Doctor
+        {
+           
+            public string doctor_name { get; set; }
+            public int Dept_ID { get; set; }
+        }
+        class Department
+        {
+            public string Dept_name { get; set; }
+            public int Dept_ID { get; set; }
+        }
+       
+
+    
+
+    class Program
+    {
+        //Main Function
+        static void Main(string[] args)
+        {
+           
+          
+            q1 obj1 = new q1();
+            q2 obj2 = new q2();
+
+            obj1.count();//q1
+           
+            obj2.count_of_patern();//q2
+           
+           //q3
+            List<Doctor> Doc = new List<Doctor> {
+            new Doctor {doctor_name="aman",Dept_ID=1},
+            new Doctor {doctor_name="ashish",Dept_ID=2},
+            new Doctor {doctor_name="shubham",Dept_ID=1},
+            new Doctor {doctor_name="himanshu",Dept_ID=3},
+            };
+            //Creating a list of Departments
+            List<Department> Dep = new List<Department> {
+            new Department { Dept_name = "cardiology",Dept_ID=1},
+            new Department { Dept_name = "neuroscience", Dept_ID = 2 },
+            new Department { Dept_name = "gynecology", Dept_ID = 3 }
+            };
+            //Joining Each Employee with the Department he/she works for
+            IEnumerable<string> result = from d in Doc
+                                         join dp in Dep
+                                         on d.Dept_ID equals dp.Dept_ID
+                                         select d.doctor_name + "-" + dp.Dept_name;
+            Console.WriteLine("Matching details are here");
+            foreach (string item in result)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
+}
