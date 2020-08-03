@@ -1,12 +1,7 @@
 package com.au.spring.model;
 
 public class AreaCollector {
-	public void getArea(Triangle obj)
-	{
-		System.out.println("Area : "+obj.area());
-	}
-	
-	public void getArea(Circle obj)
+	public void getArea(shape obj)
 	{
 		System.out.println("Area : "+obj.area());
 	}
