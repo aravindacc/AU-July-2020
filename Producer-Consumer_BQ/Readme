@@ -1,0 +1,9 @@
+Steps to run:
+
+1. Open the project "Producer-Consumer_BQ" in Intellij.
+2. Run the main class present in "ProducerConsumer class".
+
+or
+
+1. Go to "Producer-Consumer_BQ/src/com/Blockingqueue" and run the ProducerConsumer class.
+
