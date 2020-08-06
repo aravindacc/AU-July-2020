@@ -1,0 +1,90 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace file1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string directory = "C:\\Users\\AMAN\\Desktop\\FILEIO";
+          
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+            string myfile = "C:\\Users\\AMAN\\Desktop\\FILEIO\\text.txt";
+
+            try
+            {
+
+                 
+ 
+                using (StreamWriter sw = File.CreateText(myfile))
+                {
+                    sw.WriteLine("New file created: {0}", DateTime.Now.ToString());
+                    sw.WriteLine("NAME: AMAN JAISWAL");
+                    sw.WriteLine("ACCOLITE");
+                   
+                }
+
+                // Write file contents on console.     
+                var countofchar = File.ReadAllLines(myfile).Sum(s => s.Length);
+                Console.WriteLine("The number of character is {0}",countofchar);
+
+                try
+                {
+
+                    using (StreamReader sr = new StreamReader(myfile))
+                    {
+                        string[] items= new string[100];
+                        int index = 0;
+                        using (StreamWriter sw1 = File.CreateText("C:\\Users\\AMAN\\Desktop\\FILEIO\\reverse.txt"))
+                        {
+                            string line="";
+                          
+
+
+                            while ((line = sr.ReadLine()) != null)
+                            {
+                                items[index] = line;
+                                index++;
+
+                            }
+
+                            for (int i = index-1; i >= 0; i--)
+                            {
+                                string l = items[i];
+                                sw1.WriteLine(l);
+                                
+                            }
+
+                            
+
+
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                  
+                    Console.WriteLine("Sorry the file cannot be read ");
+                    Console.WriteLine(e.Message);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+
+        private static ArrayList ArrayList()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
