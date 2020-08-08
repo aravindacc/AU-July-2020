@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//src/com/soap/accolite/model/Course.java=UTF-8
+encoding//src/com/soap/accolite/model/Student.java=UTF-8
+encoding//src/com/soap/accolite/model/Student_course.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/CourseServiceImpl.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/CourseServiceImplService.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/CourseServiceImplServiceLocator.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/CourseServiceImplSoapBindingStub.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/StudentCourseServiceImpl.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/StudentCourseServiceImplService.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/StudentCourseServiceImplServiceLocator.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/StudentCourseServiceImplSoapBindingStub.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/StudentServiceImpl.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/StudentServiceImplService.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/StudentServiceImplServiceLocator.java=UTF-8
+encoding//src/com/soap/accolite/service/impl/StudentServiceImplSoapBindingStub.java=UTF-8
