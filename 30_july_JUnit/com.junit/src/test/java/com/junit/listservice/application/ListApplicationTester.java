@@ -1,4 +1,4 @@
-package com.junit.listservice;
+package com.junit.listservice.application;
 
 import org.junit.Assert;
 import org.junit.Test;

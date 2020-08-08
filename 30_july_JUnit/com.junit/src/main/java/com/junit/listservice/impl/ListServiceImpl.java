@@ -1,4 +1,4 @@
-package com.junit.listservice;
+package com.junit.listservice.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.junit.entity.User;
+import com.junit.listservice.ListService;
 
 import lombok.extern.slf4j.Slf4j;
 

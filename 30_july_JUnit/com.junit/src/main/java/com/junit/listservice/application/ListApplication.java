@@ -1,7 +1,9 @@
-package com.junit.listservice;
+package com.junit.listservice.application;
 
 
 import com.junit.entity.User;
+import com.junit.listservice.ListService;
+import com.junit.listservice.impl.ListServiceImpl;
 
 public class ListApplication  {
 
