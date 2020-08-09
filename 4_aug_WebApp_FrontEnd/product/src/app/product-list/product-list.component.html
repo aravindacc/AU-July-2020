@@ -8,6 +8,7 @@
             <img [src]="item.imageUrl" class="img" /> </div>
         <p>Price : {{item.price}}</p>
         <div>
+          <button (click)="update(item)" style="margin-bottom: 10px;"> Update</button> &nbsp;&nbsp;
           <button (click)="delete(item.id)" style="margin-bottom: 10px;"> Delete</button>
         </div>
         </div>

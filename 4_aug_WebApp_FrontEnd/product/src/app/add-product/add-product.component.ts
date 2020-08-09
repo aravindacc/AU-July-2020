@@ -9,8 +9,9 @@ import { ProductService } from '../product.service';
 export class AddProductComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
-
+  data:any ;
   ngOnInit(): void {
+    this.data = history.state.data;
   }
 
   addProduct(payload) {

@@ -7,6 +7,7 @@ import { HttpClient } from "@angular/common/http";
 export class ProductService {
 
   ADD_PRODUCT = "/com.maven.webapp/item/add";
+  UPDATE_PRODUCT = "/com.maven.webapp/item/update";
   GET_ALL = "/com.maven.webapp/item/getAll";
   GET_TOP_TEN = "/com.maven.webapp/item/getTopTen";
   DELETE_PRODUCT = "/com.maven.webapp/item/delete/";
@@ -16,6 +17,9 @@ export class ProductService {
 
   addProduct(payload: any) {
     return this.http.post(this.ADD_PRODUCT, payload);
+  }
+  updateProduct(payload: any) {
+    return this.http.post(this.UPDATE_PRODUCT, payload);
   }
 
 

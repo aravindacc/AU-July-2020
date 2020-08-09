@@ -47,6 +47,22 @@ public class CartDaoImpl implements CartDao {
 			return item;
 		});
 	}
+	
+	@Override
+	public int updateItem(Item item) {
+		return jdbcTemplate.update(connection -> {
+			PreparedStatement ps = connection.prepareStatement(
+					"update item set itemNm = ?, price = ?, category = ?, description = ?, imageUrl = ? where id = ?", Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, item.getName());
+			ps.setInt(2, item.getPrice());
+			ps.setString(3, item.getCategory());
+			ps.setString(4, item.getDescription());
+			ps.setString(5, item.getImageUrl());
+			ps.setInt(6, item.getId());
+			return ps;
+		});
+	}
+	
 	public List<Item> getAll(){
 		return jdbcTemplate.query("select * from item", (rs,i)->{
 			Item item = new Item();

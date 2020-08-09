@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -8,7 +9,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor(private productService :ProductService) { }
+  constructor(private productService :ProductService, private router : Router) { }
 
   @Input() listOfItem:object;
   @Output() load = new EventEmitter();
@@ -30,5 +31,10 @@ export class ProductListComponent implements OnInit {
         }
       );
     }
+  }
+
+  update(item)
+  {
+    this.router.navigate(['/updateProduct'],{state: {data :item}});
   }
 }

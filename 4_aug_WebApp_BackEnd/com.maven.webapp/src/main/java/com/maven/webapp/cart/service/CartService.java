@@ -11,4 +11,5 @@ public interface CartService {
 	public List<Item> getAll();
 	public List<Item> getTopTen();
 	public boolean deleteItem(int id);
+	public int updateItem(Item item); 
 }

@@ -23,6 +23,12 @@ public class ItemController {
 		return cartService.addNewItem(item);
 	}
 	
+	@PostMapping(value = "/item/update", consumes = "application/json")
+	public long updateItem(@RequestBody Item item) {
+		return cartService.updateItem(item);
+	}
+	
+	
 	@GetMapping(value = "/item/search/{nameOrCategory}")
 	public List<Item> searchItem(@PathVariable("nameOrCategory") String nameOrCategory)
 	{
