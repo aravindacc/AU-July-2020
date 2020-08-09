@@ -1,0 +1,134 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\Users\mahendra\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SOAP_assignments\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="StudentCourseServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+  <ns3:operation name="getCourseOfStudent" qname="ns1:getCourseOfStudent" returnQName="ns1:getCourseOfStudentReturn" returnType="ns2:Course" soapAction="" xmlns:ns1="http://impl.service.accolite.soap.com" xmlns:ns2="http://model.accolite.soap.com" xmlns:ns3="http://xml.apache.org/axis/wsdd/">
+   <ns3:parameter qname="ns1:rollno" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns3:operation>
+  <ns1:operation name="getStudentOfCourse" qname="ns3:getStudentOfCourse" returnQName="ns3:getStudentOfCourseReturn" returnType="ns4:Student" soapAction="" xmlns:ns3="http://impl.service.accolite.soap.com" xmlns:ns4="http://model.accolite.soap.com">
+   <ns1:parameter qname="ns3:courseId" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getStudentCoursesId" qname="ns5:getStudentCoursesId" returnQName="ns5:getStudentCoursesIdReturn" returnType="xsd:int" soapAction="" xmlns:ns5="http://impl.service.accolite.soap.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:rollno" type="xsd:int"/>
+   <ns1:parameter qname="ns5:courseid" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="getAllStudentWithCourses" qname="ns6:getAllStudentWithCourses" returnQName="ns6:getAllStudentWithCoursesReturn" returnType="ns7:Student_course" soapAction="" xmlns:ns6="http://impl.service.accolite.soap.com" xmlns:ns7="http://model.accolite.soap.com"/>
+  <ns1:operation name="deleteCourseToStudent" qname="ns8:deleteCourseToStudent" returnQName="ns8:deleteCourseToStudentReturn" returnType="xsd:boolean" soapAction="" xmlns:ns8="http://impl.service.accolite.soap.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:rollno" type="xsd:int"/>
+   <ns1:parameter qname="ns8:courseid" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="assignCourseToStudent" qname="ns9:assignCourseToStudent" returnQName="ns9:assignCourseToStudentReturn" returnType="xsd:boolean" soapAction="" xmlns:ns9="http://impl.service.accolite.soap.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:rollno" type="xsd:int"/>
+   <ns1:parameter qname="ns9:courseid" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="sendMultiRefs" value="false"/>
+  <ns1:parameter name="wsdlServicePort" value="StudentCourseServiceImpl"/>
+  <ns1:parameter name="schemaQualified" value="http://model.accolite.soap.com,http://impl.service.accolite.soap.com"/>
+  <ns1:parameter name="className" value="com.soap.accolite.service.impl.StudentCourseServiceImpl"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="allowedMethods" value="assignCourseToStudent getAllStudentWithCourses getStudentOfCourse getCourseOfStudent getStudentCoursesId deleteCourseToStudent"/>
+  <ns1:parameter name="wsdlServiceElement" value="StudentCourseServiceImplService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://impl.service.accolite.soap.com"/>
+  <ns1:parameter name="wsdlPortType" value="StudentCourseServiceImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="false"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:Student_course" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.soap.accolite.model.Student_course" xmlns:ns10="http://model.accolite.soap.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:Course" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.soap.accolite.model.Course" xmlns:ns11="http://model.accolite.soap.com"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns12:Student" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.soap.accolite.model.Student" xmlns:ns12="http://model.accolite.soap.com"/>
+ </ns1:service>
+ <ns1:service name="StudentServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="deleteStudent" qname="ns13:deleteStudent" returnQName="ns13:deleteStudentReturn" returnType="xsd:boolean" soapAction="" xmlns:ns13="http://impl.service.accolite.soap.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns13:rollno" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="getAllStudents" qname="ns14:getAllStudents" returnQName="ns14:getAllStudentsReturn" returnType="ns15:Student" soapAction="" xmlns:ns14="http://impl.service.accolite.soap.com" xmlns:ns15="http://model.accolite.soap.com"/>
+  <ns1:operation name="addStudent" qname="ns16:addStudent" returnQName="ns16:addStudentReturn" returnType="xsd:boolean" soapAction="" xmlns:ns16="http://impl.service.accolite.soap.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns16:s" type="ns17:Student" xmlns:ns17="http://model.accolite.soap.com"/>
+  </ns1:operation>
+  <ns1:operation name="getStudent" qname="ns18:getStudent" returnQName="ns18:getStudentReturn" returnType="ns19:Student" soapAction="" xmlns:ns18="http://impl.service.accolite.soap.com" xmlns:ns19="http://model.accolite.soap.com">
+   <ns1:parameter qname="ns18:rollno" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="changeAge" qname="ns20:changeAge" returnQName="ns20:changeAgeReturn" returnType="xsd:boolean" soapAction="" xmlns:ns20="http://impl.service.accolite.soap.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns20:rollno" type="xsd:int"/>
+   <ns1:parameter qname="ns20:age" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="addStudent changeAge getAllStudents deleteStudent getStudent"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="StudentServiceImpl"/>
+  <ns1:parameter name="className" value="com.soap.accolite.service.impl.StudentServiceImpl"/>
+  <ns1:parameter name="wsdlServicePort" value="StudentServiceImpl"/>
+  <ns1:parameter name="schemaQualified" value="http://model.accolite.soap.com,http://impl.service.accolite.soap.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://impl.service.accolite.soap.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="StudentServiceImplService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns21:Student" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.soap.accolite.model.Student" xmlns:ns21="http://model.accolite.soap.com"/>
+ </ns1:service>
+ <ns1:service name="CourseServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="deleteCourse" qname="ns22:deleteCourse" returnQName="ns22:deleteCourseReturn" returnType="xsd:boolean" soapAction="" xmlns:ns22="http://impl.service.accolite.soap.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns22:rollno" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="getCourse" qname="ns23:getCourse" returnQName="ns23:getCourseReturn" returnType="ns24:Course" soapAction="" xmlns:ns23="http://impl.service.accolite.soap.com" xmlns:ns24="http://model.accolite.soap.com">
+   <ns1:parameter qname="ns23:rollno" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getAllCourses" qname="ns25:getAllCourses" returnQName="ns25:getAllCoursesReturn" returnType="ns26:Course" soapAction="" xmlns:ns25="http://impl.service.accolite.soap.com" xmlns:ns26="http://model.accolite.soap.com"/>
+  <ns1:operation name="addCourse" qname="ns27:addCourse" returnQName="ns27:addCourseReturn" returnType="xsd:boolean" soapAction="" xmlns:ns27="http://impl.service.accolite.soap.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns27:s" type="ns28:Course" xmlns:ns28="http://model.accolite.soap.com"/>
+  </ns1:operation>
+  <ns1:parameter name="sendMultiRefs" value="false"/>
+  <ns1:parameter name="wsdlServicePort" value="CourseServiceImpl"/>
+  <ns1:parameter name="schemaQualified" value="http://model.accolite.soap.com,http://impl.service.accolite.soap.com"/>
+  <ns1:parameter name="className" value="com.soap.accolite.service.impl.CourseServiceImpl"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="allowedMethods" value="deleteCourse addCourse getAllCourses getCourse"/>
+  <ns1:parameter name="wsdlServiceElement" value="CourseServiceImplService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://impl.service.accolite.soap.com"/>
+  <ns1:parameter name="wsdlPortType" value="CourseServiceImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="false"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns29:Course" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.soap.accolite.model.Course" xmlns:ns29="http://model.accolite.soap.com"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

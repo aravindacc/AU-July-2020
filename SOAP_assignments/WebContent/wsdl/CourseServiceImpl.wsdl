@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://impl.service.accolite.soap.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://impl.service.accolite.soap.com" xmlns:intf="http://impl.service.accolite.soap.com" xmlns:tns1="http://model.accolite.soap.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://impl.service.accolite.soap.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.accolite.soap.com"/>
+   <element name="deleteCourse">
+    <complexType>
+     <sequence>
+      <element name="rollno" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCourseResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteCourseReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCourse">
+    <complexType>
+     <sequence>
+      <element name="rollno" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCourseResponse">
+    <complexType>
+     <sequence>
+      <element name="getCourseReturn" type="tns1:Course"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllCourses">
+    <complexType/>
+   </element>
+   <element name="getAllCoursesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAllCoursesReturn" type="tns1:Course"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addCourse">
+    <complexType>
+     <sequence>
+      <element name="s" type="tns1:Course"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addCourseResponse">
+    <complexType>
+     <sequence>
+      <element name="addCourseReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.accolite.soap.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Course">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getAllCoursesRequest">
+
+      <wsdl:part element="impl:getAllCourses" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllCoursesResponse">
+
+      <wsdl:part element="impl:getAllCoursesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCourseRequest">
+
+      <wsdl:part element="impl:deleteCourse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCourseResponse">
+
+      <wsdl:part element="impl:addCourseResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCourseResponse">
+
+      <wsdl:part element="impl:deleteCourseResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCourseRequest">
+
+      <wsdl:part element="impl:getCourse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCourseRequest">
+
+      <wsdl:part element="impl:addCourse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCourseResponse">
+
+      <wsdl:part element="impl:getCourseResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CourseServiceImpl">
+
+      <wsdl:operation name="deleteCourse">
+
+         <wsdl:input message="impl:deleteCourseRequest" name="deleteCourseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteCourseResponse" name="deleteCourseResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCourse">
+
+         <wsdl:input message="impl:getCourseRequest" name="getCourseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCourseResponse" name="getCourseResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllCourses">
+
+         <wsdl:input message="impl:getAllCoursesRequest" name="getAllCoursesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllCoursesResponse" name="getAllCoursesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addCourse">
+
+         <wsdl:input message="impl:addCourseRequest" name="addCourseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addCourseResponse" name="addCourseResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CourseServiceImplSoapBinding" type="impl:CourseServiceImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="deleteCourse">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteCourseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteCourseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCourse">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCourseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCourseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllCourses">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllCoursesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllCoursesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addCourse">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addCourseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addCourseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CourseServiceImplService">
+
+      <wsdl:port binding="impl:CourseServiceImplSoapBinding" name="CourseServiceImpl">
+
+         <wsdlsoap:address location="http://localhost:9090/SOAP_assignments/services/CourseServiceImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,8 @@
+
+e
+java:S11925"JDefine a constant instead of duplicating this literal "firstname" 3 times.( õÌ¼ùÿÿÿÿ
+`	java:S1120"FDefine and throw a dedicated exception instead of using a generic one.(ÜäÅ­ıÿÿÿÿ
+Z	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(æÉ™v
+`	java:S112D"FDefine and throw a dedicated exception instead of using a generic one.(¥Úõîùÿÿÿÿ
+`	java:S112T"FDefine and throw a dedicated exception instead of using a generic one.(¼Ï®æøÿÿÿÿ
+Q	java:S125 "<This block of commented-out lines of code should be removed.(ˆµ—ƒ

@@ -1,0 +1,7 @@
+Steps to run Project:-
+
+
+1. Create table as mentioned in erdiagram(User,account,audit).
+2. Provide the password in "hibernate.cfg.xml".
+3. Open the project "hibernate" in Intellij Idea.
+4. Run the project.
