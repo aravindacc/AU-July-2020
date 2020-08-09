@@ -1,0 +1,14 @@
+div {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  h1 {
+    margin: auto;
+    text-align: center;
+    span {
+      color:#903434;
+    }
+  }
+}

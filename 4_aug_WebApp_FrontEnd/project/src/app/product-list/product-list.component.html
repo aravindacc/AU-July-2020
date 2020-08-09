@@ -1,0 +1,15 @@
+
+<div class="container"> 
+      <div *ngFor="let item of listOfItem" class="item">
+        <h3>{{item.name}}</h3>
+        <b>{{item.category}}</b>
+        <p>{{item.description}}</p>
+        <div>
+            <img [src]="item.imageUrl" class="img" /> </div>
+        <p>Price : {{item.price}}</p>
+        <div>
+          <button (click)="delete(item.id)" style="margin-bottom: 10px;"> Delete</button>
+        </div>
+        </div>
+</div>
+    

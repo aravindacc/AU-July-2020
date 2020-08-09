@@ -1,0 +1,24 @@
+<main class="container">
+  <section class="product">
+    <form [formGroup]="addProductForm" class="form-container">
+      
+      <input formControlName="name" type="text" placeholder="Name" />
+
+      <input formControlName="description" type="text" placeholder="Description" />
+
+      <input formControlName="category" type="text" placeholder="Category" />
+
+      <input formControlName="imageUrl" type="text" placeholder="Image URL" />
+
+      <input formControlName="price" type="text" placeholder="Price" />
+
+      <button (click)="addProductProductComponent()" [disabled]="addProductForm.invalid">Add Product</button>
+    </form>
+    <div class="preview">
+      <img [src]="addProductForm.get('imageUrl').value" alt="">
+      <h3>Name : {{addProductForm.get('name').value}}</h3>
+      <p class="description">Description : {{addProductForm.get('description').value}}</p>
+      <h4>Price : {{addProductForm.get('price').value}}</h4>
+    </div>
+  </section>
+</main>
