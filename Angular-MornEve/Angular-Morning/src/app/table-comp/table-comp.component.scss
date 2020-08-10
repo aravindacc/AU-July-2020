@@ -1,0 +1,30 @@
+/* Sortable table demo */
+th[sortable] {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+button{
+    margin: 10px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+th[sortable].desc:before, th[sortable].asc:before {
+    content: '';
+    display: block;
+    background-size: 22px;
+    width: 22px;
+    height: 22px;
+    float: left;
+    margin-left: -22px;
+    cursor: pointer;
+}
+
+th[sortable].asc:before, th[sortable].desc:before {
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}

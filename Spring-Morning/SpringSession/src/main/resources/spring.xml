@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+	<aop:aspectj-autoproxy />
+	<context:annotation-config />
+
+	<bean id="interfaceShape"
+		  class="com.accolite.au.model.InterfaceShape" >
+	</bean>
+
+	<bean id="triangle" class="com.accolite.au.model.Triangle">
+		<property name="shape" ref="interfaceShape" />
+		<property name="type" value="Triangle" />
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
+
+		<property name="pointMap" >
+			<map>
+				<entry key="A" value-ref="pointA" />
+				<entry key="B" value-ref="pointB" />
+				<entry key="C" value-ref="pointC" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id = "pointA" class="com.accolite.au.model.Point">
+		<property name="x" value="0" />
+		<property name="y" value="1" />
+	</bean>
+
+	<bean id = "pointB" class="com.accolite.au.model.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id = "pointC" class="com.accolite.au.model.Point">
+		<property name="x" value="1" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="circle" class="com.accolite.au.model.Circle">
+		<constructor-arg name="shape" ref="interfaceShape" />
+		<constructor-arg name="type" value="Circle" />
+		<property name="center" ref="center" />
+	</bean>
+
+	<bean id = "center" class="com.accolite.au.model.Point">
+		<property name="x" value="1" />
+		<property name="y" value="1" />
+	</bean>
+
+	<bean class="com.accolite.au.aspect.LoggingAspect" />
+</beans>
+<!--<root>
+    
+</root>-->
