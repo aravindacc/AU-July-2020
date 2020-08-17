@@ -1,0 +1,21 @@
+
+`
+0src/com/soap/accolite/service/CourseService.java,7/2/722da992d17c9cb750931f5296d6827e757b7c97
+g
+7src/com/soap/accolite/service/StudentCourseService.java,1/2/12e7dd37388d37e0878f4cf959d2ead1f10e2f76
+a
+1src/com/soap/accolite/service/StudentService.java,d/a/dabc4dd4f9ba59ee395562531ab770355a4bd3a9
+O
+WebContent/META-INF/MANIFEST.MF,7/e/7e3c1364cb3462ecda722a7cad8cd391378e7818
+†
+VWebContent/WEB-INF/CourseServiceImplService/com/soap/accolite/service/impl/deploy.wsdd,a/4/a461166b482a5cf939d073e6477a9038781df741
+Š
+ZWebContent/WEB-INF/CourseServiceImplService/com/soap/accolite/service/impl/deploy.wsdd.bak,9/9/998e7d4f39f99cb33e4465655d3d302148feca8d
+ˆ
+XWebContent/WEB-INF/CourseServiceImplService/com/soap/accolite/service/impl/undeploy.wsdd,e/3/e3966ada676830c691da129658d0adb0404d07f5
+V
+&WebContent/wsdl/CourseServiceImpl.wsdl,e/9/e91a0c35b0ea6ba2f7a94ef61c2502bcd10adfe8
+]
+-WebContent/wsdl/StudentCourseServiceImpl.wsdl,1/0/1053e67edf8bd2fc0c576cc4067998e4b97cde49
+W
+'WebContent/wsdl/StudentServiceImpl.wsdl,c/1/c16fe159deb2f43a31aa353e1a1c1d819c9a40a3

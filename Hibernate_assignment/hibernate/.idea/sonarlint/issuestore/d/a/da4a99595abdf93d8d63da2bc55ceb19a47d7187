@@ -1,0 +1,19 @@
+
+Z	java:S106N"9Replace this use of System.out or System.err by a logger.(ÓÌÄ¤ùÿÿÿÿ8úüÖø¼.
+U	java:S106E"9Replace this use of System.out or System.err by a logger.(š¨ó8øû¢û¼.
+Z	java:S106D"9Replace this use of System.out or System.err by a logger.(Ÿ‘íşÿÿÿÿÿ8øû¢û¼.
+Z	java:S106G"9Replace this use of System.out or System.err by a logger.(×»áĞşÿÿÿÿ8¤’û¼.
+U	java:S106H"9Replace this use of System.out or System.err by a logger.(ìÑæ8¤’û¼.
+Z	java:S106I"9Replace this use of System.out or System.err by a logger.(ÛçĞ¯úÿÿÿÿ8¤’û¼.
+
+java:S1130"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ùï¾ÿÿÿÿÿ8¹ÌŸû¼.
+Z	java:S106Q"9Replace this use of System.out or System.err by a logger.(°Ø¥ïşÿÿÿÿ8İñÔø¼.
+U	java:S106O"9Replace this use of System.out or System.err by a logger.(²õã¨8úüÖø¼.
+T	java:S106M"9Replace this use of System.out or System.err by a logger.(è­€M8•¢ø¼.
+Z	java:S106R"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8•¢ø¼.
+i
+java:S1192"GDefine a constant instead of duplicating this literal "saving" 3 times.(ıÿ‘Çúÿÿÿÿ8İ¡œû¼.
+U	java:S106P"9Replace this use of System.out or System.err by a logger.(Ãª£à8úüÖø¼.
+Z
+java:S1197"8Move the array designator from the variable to the type.(ùï¾ÿÿÿÿÿ8â‰÷ç¼.
+U	java:S106L"9Replace this use of System.out or System.err by a logger.(°•óÖ8İñÔø¼.

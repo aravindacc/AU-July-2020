@@ -1,0 +1,8 @@
+1. Find all hotels with ratings for Cleanliness>=4
+2. Find the highest airport in each country.
+3. Find all routes operated by Air France from the city of Marseille. (use field faa)
+Query:-
+1.select count(name) from `travel~sample`as t where (select t.hotels from t.reviews as s where s.ratings.Cleanliness>=4);
+2.select count(airport), country from `travel~sample` group by country;
+3.selct meta(s).id route id from `travel~sample` s join `travel~sample t on keys s.airlineid where t.callsign = "AIRFRANS";
+

@@ -1,0 +1,70 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from StudentCourseServiceImplService WSDL service -->
+
+  <service name="StudentCourseServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://impl.service.accolite.soap.com"/>
+      <parameter name="wsdlServiceElement" value="StudentCourseServiceImplService"/>
+      <parameter name="schemaQualified" value="http://model.accolite.soap.com,http://impl.service.accolite.soap.com"/>
+      <parameter name="wsdlServicePort" value="StudentCourseServiceImpl"/>
+      <parameter name="className" value="com.soap.accolite.service.impl.StudentCourseServiceImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="StudentCourseServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getCourseOfStudent" qname="operNS:getCourseOfStudent" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:getCourseOfStudentReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:Course" xmlns:rtns="http://model.accolite.soap.com" soapAction="" >
+        <parameter qname="pns:rollno" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getStudentOfCourse" qname="operNS:getStudentOfCourse" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:getStudentOfCourseReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:Student" xmlns:rtns="http://model.accolite.soap.com" soapAction="" >
+        <parameter qname="pns:courseId" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getStudentCoursesId" qname="operNS:getStudentCoursesId" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:getStudentCoursesIdReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:rollno" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:courseid" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAllStudentWithCourses" qname="operNS:getAllStudentWithCourses" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:getAllStudentWithCoursesReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:Student_course" xmlns:rtns="http://model.accolite.soap.com" soapAction="" >
+      </operation>
+      <operation name="deleteCourseToStudent" qname="operNS:deleteCourseToStudent" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:deleteCourseToStudentReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:rollno" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:courseid" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="assignCourseToStudent" qname="operNS:assignCourseToStudent" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:assignCourseToStudentReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:rollno" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:courseid" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="assignCourseToStudent getAllStudentWithCourses getStudentOfCourse getCourseOfStudent getStudentCoursesId deleteCourseToStudent"/>
+
+      <typeMapping
+        xmlns:ns="http://model.accolite.soap.com"
+        qname="ns:Student_course"
+        type="java:com.soap.accolite.model.Student_course"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model.accolite.soap.com"
+        qname="ns:Course"
+        type="java:com.soap.accolite.model.Course"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model.accolite.soap.com"
+        qname="ns:Student"
+        type="java:com.soap.accolite.model.Student"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

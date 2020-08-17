@@ -1,0 +1,15 @@
+Query used for create database,table and record:
+1.create hospital_management_system;
+2. use hospital_management_system
+3.CREATE TABLE `hospital_mangement_system`.`room` (
+  `ID` INT NOT NULL,
+  `sattus` VARCHAR(45) NOT NULL,
+  `type` VARCHAR(45) NOT NULL,
+  `fare` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`));
+4.insert into patient_record(ID,admit_date,discharge_date,bill,P_ID) values (502,"2020-07-05","2020-07-10","1000",101);
+5. select * from patient_record;
+
+Query for task:
+Task 2: select  d.ID ,d.Name, d.Department,p.P_ID from doctor d join patient p where p.D_ID = d.ID;
+Task 3: select count(P_ID) from patient_record where discharge_date>=DATEADD(day, -7, GETDATE()) group by discharge_date;

@@ -1,0 +1,7 @@
+Steps to run App:-
+1. Go to AngularProject Directory.
+2 Run json Server by using command "json-server -p 5555 production.json".
+3.After that open the new terminal and goto AngularProject/angular-project.
+4.Run the app using "ng serve". The app will open on "http://localhost:4200/".
+
+

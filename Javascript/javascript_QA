@@ -1,0 +1,14 @@
+Q1. Difference between /r and /n?
+Ans:- Both are different in the sense like /r are used when line is changed on their own due to layout and /n is used when we changed line. 
+Q2.var add = (function (){ var counter=0;
+return function(){return counter+=1;}})()
+add();
+1
+add()
+2
+add()
+3
+console.log(add)
+VM495:1 ƒ (){return counter+=1;}
+undefined
+Ans:- This is an example of JavaScript closure. If we see the o/p line "ƒ (){return counter+=1;}", it shows that it is nested function. By first function is used to make "private" variables of the function. The counter variable is protected by the scope and can only be changed using the add function.

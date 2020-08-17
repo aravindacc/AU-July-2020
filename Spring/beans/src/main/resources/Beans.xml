@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+        <bean id = "helloWorld" class = "com.au.spring.beans.HelloWorld">
+            <property name = "message" value = "Hello World!"/>
+        </bean>
+
+
+    <bean id="Triangle" class="com.au.spring.beans.Triangle">
+        <property name="Type"  value="Equilateral Triangle"></property>
+        <property name="pointA" ref="pointA"></property>
+        <property name="pointB" ref="pointB"></property>
+        <property name="pointC" ref="pointC"></property>
+        <property name="pointMap">
+            <map>
+                <entry key="A">
+                    <bean  class="com.au.spring.beans.Points">
+                        <property name="x" value="11"></property>
+                        <property name="y" value="12"></property>
+                    </bean>
+                </entry>
+                <entry key="B">
+                    <bean  class="com.au.spring.beans.Points">
+                        <property name="x" value="13"></property>
+                        <property name="y" value="14"></property>
+                    </bean>
+                </entry>
+                <entry key="C">
+                    <bean  class="com.au.spring.beans.Points">
+                        <property name="x" value="15"></property>
+                        <property name="y" value="16"></property>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+
+    </bean>
+    <bean id="pointA" class="com.au.spring.beans.Points"/>
+    <bean id="pointB" class="com.au.spring.beans.Points"/>
+    <bean id="pointC" class="com.au.spring.beans.Points"/>
+
+    <bean id="simpleclass" class="com.au.spring.beans.Area">
+    </bean>
+
+    <bean id="circle" class="com.au.spring.beans.Circle">
+        <constructor-arg name="Type" value="Circle"></constructor-arg>
+        <constructor-arg name="radius" value="5"></constructor-arg>
+        <constructor-arg name="center" >
+            <bean id="center" class="com.au.spring.beans.Points">
+                <property name="x" value="5"></property>
+                <property name="y" value="10"></property>
+            </bean>
+        </constructor-arg>
+    </bean>
+</beans>
