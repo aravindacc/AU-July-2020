@@ -1,2 +1,8 @@
-1) Create a folder for each session - Format :  session name-Morning/Afternoon. Example: RDMS Concepts-Morning
-2) Commit your assignments inside the folder you created
+# Mukesh Suthar- Assignments
+**mukesh.suthar@accoliteindia.com**
+
+- Find your session using date and course name
+- Read Readme file (if any)
+- Download assignment
+- Install dependencies (if any)
+- Run assignment

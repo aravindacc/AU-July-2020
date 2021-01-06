@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://impl.service.accolite.soap.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://impl.service.accolite.soap.com" xmlns:intf="http://impl.service.accolite.soap.com" xmlns:tns1="http://model.accolite.soap.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://impl.service.accolite.soap.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.accolite.soap.com"/>
+   <element name="getCourseOfStudent">
+    <complexType>
+     <sequence>
+      <element name="rollno" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCourseOfStudentResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getCourseOfStudentReturn" type="tns1:Course"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStudentOfCourse">
+    <complexType>
+     <sequence>
+      <element name="courseId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStudentOfCourseResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getStudentOfCourseReturn" type="tns1:Student"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStudentCoursesId">
+    <complexType>
+     <sequence>
+      <element name="rollno" type="xsd:int"/>
+      <element name="courseid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStudentCoursesIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getStudentCoursesIdReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllStudentWithCourses">
+    <complexType/>
+   </element>
+   <element name="getAllStudentWithCoursesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAllStudentWithCoursesReturn" type="tns1:Student_course"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCourseToStudent">
+    <complexType>
+     <sequence>
+      <element name="rollno" type="xsd:int"/>
+      <element name="courseid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCourseToStudentResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteCourseToStudentReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="assignCourseToStudent">
+    <complexType>
+     <sequence>
+      <element name="rollno" type="xsd:int"/>
+      <element name="courseid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="assignCourseToStudentResponse">
+    <complexType>
+     <sequence>
+      <element name="assignCourseToStudentReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.accolite.soap.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Course">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Student">
+    <sequence>
+     <element name="age" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="rollno" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="Student_course">
+    <sequence>
+     <element name="course" nillable="true" type="tns1:Course"/>
+     <element name="courseId" type="xsd:int"/>
+     <element name="id" type="xsd:int"/>
+     <element name="student" nillable="true" type="tns1:Student"/>
+     <element name="studentRollno" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deleteCourseToStudentRequest">
+
+      <wsdl:part element="impl:deleteCourseToStudent" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStudentCoursesIdRequest">
+
+      <wsdl:part element="impl:getStudentCoursesId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStudentOfCourseRequest">
+
+      <wsdl:part element="impl:getStudentOfCourse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="assignCourseToStudentRequest">
+
+      <wsdl:part element="impl:assignCourseToStudent" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStudentOfCourseResponse">
+
+      <wsdl:part element="impl:getStudentOfCourseResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCourseOfStudentResponse">
+
+      <wsdl:part element="impl:getCourseOfStudentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllStudentWithCoursesResponse">
+
+      <wsdl:part element="impl:getAllStudentWithCoursesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="assignCourseToStudentResponse">
+
+      <wsdl:part element="impl:assignCourseToStudentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCourseOfStudentRequest">
+
+      <wsdl:part element="impl:getCourseOfStudent" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllStudentWithCoursesRequest">
+
+      <wsdl:part element="impl:getAllStudentWithCourses" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStudentCoursesIdResponse">
+
+      <wsdl:part element="impl:getStudentCoursesIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCourseToStudentResponse">
+
+      <wsdl:part element="impl:deleteCourseToStudentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="StudentCourseServiceImpl">
+
+      <wsdl:operation name="getCourseOfStudent">
+
+         <wsdl:input message="impl:getCourseOfStudentRequest" name="getCourseOfStudentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCourseOfStudentResponse" name="getCourseOfStudentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStudentOfCourse">
+
+         <wsdl:input message="impl:getStudentOfCourseRequest" name="getStudentOfCourseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getStudentOfCourseResponse" name="getStudentOfCourseResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStudentCoursesId">
+
+         <wsdl:input message="impl:getStudentCoursesIdRequest" name="getStudentCoursesIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getStudentCoursesIdResponse" name="getStudentCoursesIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllStudentWithCourses">
+
+         <wsdl:input message="impl:getAllStudentWithCoursesRequest" name="getAllStudentWithCoursesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllStudentWithCoursesResponse" name="getAllStudentWithCoursesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCourseToStudent">
+
+         <wsdl:input message="impl:deleteCourseToStudentRequest" name="deleteCourseToStudentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteCourseToStudentResponse" name="deleteCourseToStudentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="assignCourseToStudent">
+
+         <wsdl:input message="impl:assignCourseToStudentRequest" name="assignCourseToStudentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:assignCourseToStudentResponse" name="assignCourseToStudentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="StudentCourseServiceImplSoapBinding" type="impl:StudentCourseServiceImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCourseOfStudent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCourseOfStudentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCourseOfStudentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStudentOfCourse">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getStudentOfCourseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getStudentOfCourseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStudentCoursesId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getStudentCoursesIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getStudentCoursesIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllStudentWithCourses">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllStudentWithCoursesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllStudentWithCoursesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCourseToStudent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteCourseToStudentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteCourseToStudentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="assignCourseToStudent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="assignCourseToStudentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="assignCourseToStudentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="StudentCourseServiceImplService">
+
+      <wsdl:port binding="impl:StudentCourseServiceImplSoapBinding" name="StudentCourseServiceImpl">
+
+         <wsdlsoap:address location="http://localhost:9090/SOAP_assignments/services/StudentCourseServiceImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

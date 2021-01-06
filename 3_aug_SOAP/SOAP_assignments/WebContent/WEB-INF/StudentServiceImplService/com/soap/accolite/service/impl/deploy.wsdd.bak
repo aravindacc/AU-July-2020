@@ -1,0 +1,49 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from StudentServiceImplService WSDL service -->
+
+  <service name="StudentServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://impl.service.accolite.soap.com"/>
+      <parameter name="wsdlServiceElement" value="StudentServiceImplService"/>
+      <parameter name="schemaQualified" value="http://model.accolite.soap.com,http://impl.service.accolite.soap.com"/>
+      <parameter name="wsdlServicePort" value="StudentServiceImpl"/>
+      <parameter name="className" value="com.soap.accolite.service.impl.StudentServiceImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="StudentServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="deleteStudent" qname="operNS:deleteStudent" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:deleteStudentReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:rollno" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAllStudents" qname="operNS:getAllStudents" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:getAllStudentsReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:Student" xmlns:rtns="http://model.accolite.soap.com" soapAction="" >
+      </operation>
+      <operation name="addStudent" qname="operNS:addStudent" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:addStudentReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:s" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:Student" xmlns:tns="http://model.accolite.soap.com"/>
+      </operation>
+      <operation name="getStudent" qname="operNS:getStudent" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:getStudentReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:Student" xmlns:rtns="http://model.accolite.soap.com" soapAction="" >
+        <parameter qname="pns:rollno" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="changeAge" qname="operNS:changeAge" xmlns:operNS="http://impl.service.accolite.soap.com" returnQName="retNS:changeAgeReturn" xmlns:retNS="http://impl.service.accolite.soap.com" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:rollno" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:age" xmlns:pns="http://impl.service.accolite.soap.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addStudent changeAge getAllStudents deleteStudent getStudent"/>
+
+      <typeMapping
+        xmlns:ns="http://model.accolite.soap.com"
+        qname="ns:Student"
+        type="java:com.soap.accolite.model.Student"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
