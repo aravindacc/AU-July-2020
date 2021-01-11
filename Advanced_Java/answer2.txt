@@ -1,0 +1,137 @@
+package ansswer2;
+
+import java.sql.*;
+import com.mysql.jdbc.Driver;
+import java.io.File;
+import java.util.*;
+import org.dom4j.*;
+import org.dom4j.io.SAXReader;
+
+class database 
+{
+    Connection cont;
+    public database()
+    {
+        try{
+            Class.forName("com.mysql.jdbc.Driver");  
+
+            cont=DriverManager.getConnection("jdbc:mysql://localhost:3306/question2","neeraj","ghostrider");  
+
+        }catch(Exception err)
+        {
+            System.out.println(err.getMessage());
+        }
+    }
+    
+    public void addTable()
+    {
+
+        try{
+            Statement stmt =  cont.createStatement();
+            stmt.execute("create table student("
+                       + "id int primary key,"
+                       + "name varchar(30),"
+                       + "surname varchar(20),"
+                       + "gender varchar(6),"
+                       + "marks float)");
+        }catch(Exception err){
+            System.out.println(err.getMessage());
+        }
+    }
+    
+    
+    public void addRow(int rollno, String Firstname, String Middlename, String Lastname,String gender, float marks)
+    {
+        try {
+          
+            PreparedStatement stmt = cont.prepareStatement("insert into student values (?,?,?,?,?)");
+        
+            stmt.setInt(1, rollno);
+            stmt.setString(2, Firstname+" "+Middlename);
+            stmt.setString(3, Lastname);
+            stmt.setString(4, gender);
+            stmt.setFloat(5, marks);
+     
+            if(stmt.executeUpdate()>0)
+                System.out.println("Inserted Successfully");
+            else
+                System.out.println("Insertion failed");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+
+    public void printTableData()
+    {
+        try {
+            Statement stmt = cont.createStatement();
+            ResultSet datatset =  stmt.executeQuery("select * from student");
+            while (datatset.next()) {
+                System.out.print(datatset.getInt("id")+"\t");
+                System.out.print(datatset.getString("name")+"\t");
+                System.out.print(datatset.getString("surname")+"\t");
+                System.out.print(datatset.getString("gender")+"\t");
+                System.out.println(datatset.getFloat("marks")+"\t");
+                
+            }
+        } catch (Exception e) {
+            System.out.println("Error in getting details : "+e.getMessage());
+        }
+    }
+    
+    public void close()
+    {
+        try{
+            cont.close();
+        }catch(Exception er)
+        {
+            System.out.println(er.getMessage());
+        }
+    }
+
+}
+public class xmlparser {
+    public static void main(String[] args) {
+	
+
+        database mysql_db =  new database();
+        
+   
+        mysql_db.addTable();
+        
+        
+        try {
+            
+            File xmlfile = new File("E:\\accolite\\training\\10 java fundamentals and advanced java\\ansswer2\\src\\input.txt");
+            SAXReader saxReader = new SAXReader();
+            Document document = saxReader.read(xmlfile);
+                    
+            
+            List<Node> nodes = document.selectNodes("/class/student");
+
+            for (Node node : nodes) {
+                int rollno = Integer.parseInt(node.valueOf("@rollno"));
+                String fname =  node.selectSingleNode("name/firstname").getText();
+                String mname =  node.selectSingleNode("name/middlename").getText();
+                String lname =  node.selectSingleNode("name/lastname").getText();
+                String gender =  node.selectSingleNode("gender").getText();
+                float marks = Float.parseFloat(node.selectSingleNode("marks").getText());
+
+               mysql_db.addRow(rollno, fname, mname, lname, gender, marks);
+            }
+   
+            mysql_db.printTableData();
+            
+            
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        finally
+        {
+            mysql_db.close();
+        }
+    }
+}
