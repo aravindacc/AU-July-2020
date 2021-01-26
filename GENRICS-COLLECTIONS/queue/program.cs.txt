@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace ConsoleApp3
+{
+
+
+    interface Q<T>
+    {
+        void enqueue(T number);
+        T dequeue();
+        T top();
+        bool isEmpty();
+    } 
+
+    class myQueue<T>:Q<T>
+    {
+        int size=10000;
+        T[] a=new T[10000];
+        int front=-1, rear=-1;
+        
+       
+        public void enqueue(T x)
+        {
+            if (front == -1)
+            {
+                front++;
+                rear++;
+                a[rear] = x;
+            }
+
+            else if (rear == size - 1)
+            {
+                Console.WriteLine("Queue is Full");
+            }
+            else
+            {
+                rear++;
+                a[rear] = x;
+
+            }
+        }
+    
+        public T dequeue()
+        {
+            if (front == rear)
+            {
+                T temp = a[front];
+                front = rear = -1;
+                return temp;
+            }
+            else if (front == -1)
+            {
+                //In case if Queue is empty, a message is displayed to the user and the default value is returned
+                Console.WriteLine("Queue is Empty");
+                return default(T);
+            }
+            else
+            {
+                front++;
+                return a[front - 1];
+            }
+        }
+       
+        public T top()
+        {
+            if (front == -1)
+            {         
+                Console.WriteLine("Queue is Empty");
+                return default(T);
+            }
+            else
+            {
+                return a[front];
+            }
+        }
+        //Function which returns true if the queue is empty
+        public Boolean isEmpty()
+        {
+            if (front == -1)
+                return true;
+            return false;
+        }
+
+      
+       
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            myQueue<string> obj = new myQueue<string>();
+            obj.enqueue("aman");
+            obj.enqueue("shubham");
+            obj.enqueue("ashish");
+            Console.WriteLine(  obj.top());
+             Console.WriteLine( obj.dequeue());
+            Console.WriteLine(obj.top());
+            Console.WriteLine(obj.dequeue());
+        }
+       
+    }
+}

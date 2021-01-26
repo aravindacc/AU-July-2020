@@ -1,0 +1,94 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace ConsoleApp3
+{
+
+
+    interface st<T>
+    {
+        void push(T number);
+        T pop();
+        T peek();
+        bool isEmpty();
+        bool isFull();
+    }
+
+    class myStack<T>:st<T>
+    {
+        int size=100000;
+        T[] arr= new T[100000];
+        int index=-1;
+       
+        public void push(T x)
+        {
+            if (index < size - 1)
+            {
+                arr[++index] = x;
+            }
+            else
+            {
+                Console.WriteLine("Stack is Full");
+            }
+        }
+        //Function to delete an element from the stack
+        public T pop()
+        {
+            if (index == -1)
+            {
+                Console.WriteLine("Stack is empty");
+                return default(T);
+            }
+            else
+            {
+                index--;
+                return arr[index + 1];
+            }
+        }
+        //Function that returns the element at the top of the stack
+        public T peek()
+        {
+            if (index == -1)
+            { 
+                Console.WriteLine("Stack is empty");
+                return default(T);
+            }
+            else
+            {
+                return arr[index];
+            }
+        }
+       
+        public Boolean isEmpty()
+        {
+            if (index == -1)
+                return true;
+            return false;
+        }
+
+
+        public bool isFull()
+        {
+            if (index == 100000)
+                return true;
+            return false;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            myStack<string> obj = new myStack<string>();
+            obj.push("aman");
+            obj.push("shubham");
+            obj.push("ashish");
+            Console.WriteLine(  obj.peek());
+             Console.WriteLine( obj.pop());
+            Console.WriteLine(obj.peek());
+            Console.WriteLine(obj.pop());
+        }
+       
+    }
+}
