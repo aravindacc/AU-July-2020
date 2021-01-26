@@ -1,0 +1,171 @@
+1.
+Create table patient
+(pid int,
+Name varchar,
+Situation varchar,
+discharge date,
+rid int,
+did int
+);
+insert into patient values(101,"Raju","Critical","10-07-2020",102,102);
+insert into patient values(102,"Rahul","Mild","13-06-2020",101,101);
+insert into patient values(103,"Aman","Critical","12-07-2020",104,102);
+insert into patient values(104,"Rohit","Mild","14-07-2020",101,101);
+insert into patient values(105,"Sohail","Critical","19-07-2020",103,103);
+insert into patient values(106,"Manish","Critical","14-07-2020",103,102);
+insert into patient values(107,"Mahesh","Mild","13-07-2020",104,104);
+insert into patient values(108,"Amit","Critical","12-07-2020",101,101);
+insert into patient values(109,"Janu","Mild","19-07-2020",103,102);
+insert into patient values(110,"Ayushi","Critical","10-07-2020",104,103);
+
+Create table patient_phone
+(pid int,
+phone number
+);
+insert into patient_phone values(101,9672371563);
+insert into patient_phone values(102,9636138563);
+insert into patient_phone values(103,9632631563);
+insert into patient_phone values(102,9653637563);
+insert into patient_phone values(103,9673153893);
+insert into patient_phone values(104,9645342363);
+insert into patient_phone values(102,9634523463);
+
+create table patient_medicine
+(pid int,
+name_of_medicine varchar
+);
+insert into patient_medicine values(101,"Abacavir");
+insert into patient_medicine values(101,"Allopurinol");
+insert into patient_medicine values(102,"Amifostine");
+insert into patient_medicine values(104,"Sumo");
+insert into patient_medicine values(101,"paracetamol");
+insert into patient_medicine values(104,"Allopurinol");
+insert into patient_medicine values(102,"Poison");
+insert into patient_medicine values(103,"Alendronate");
+
+create table room
+(rid int,
+room_type varchar
+);
+insert into room values(101,"Normal");
+insert into room values(102,"Operation");
+insert into room values(103,"Normal");
+insert into room values(104,"Operation");
+
+create table doctor
+(did int,
+name varchar,
+city varchar,
+State varchar,
+pincode Number,
+dept_id int
+);
+insert into doctor values(101,"Raj","Loni","UP",201102,101);
+insert into doctor values(102,"Mathur","Loni","UP",201102,101);
+insert into doctor values(103,"Harsh","Loni","UP",201102,102);
+insert into doctor values(104,"Rahul","Loni","UP",201102,103);
+
+create table doctor_phone
+(did int,
+phone number
+);
+insert into doctor_phone values(101,9672371563);
+insert into doctor_phone values(102,9636138563);
+insert into doctor_phone values(103,9632631563);
+insert into doctor_phone values(102,9653637563);
+insert into doctor_phone values(103,9673153893);
+insert into doctor_phone values(104,9645342363);
+insert into doctor_phone values(102,9634523463);
+
+create table dept
+(dept_id int,
+name varchar
+);
+insert into dept values(101,"Cardiology");
+insert into dept values(102,"Oncology");
+insert into dept values(103,"Neurology");
+insert into dept values(104,"Gynaecology");
+
+create table doctor_nurses
+(did int,
+nid int
+);
+insert into doctor_nurses values(101,102);
+insert into doctor_nurses values(101,103);
+insert into doctor_nurses values(103,101);
+insert into doctor_nurses values(103,104);
+insert into doctor_nurses values(104,105);
+insert into doctor_nurses values(102,106);
+
+create table nurses
+(nid int,
+name varchar
+);
+insert into nurses values(101,"ananya");
+insert into nurses values(102,"kritika");
+insert into nurses values(103,"ayushi");
+insert into nurses values(104,"mansi");
+insert into nurses values(105,"monika");
+insert into nurses values(106,"shruti");
+
+create table nurse_phone
+(nid int,
+phone number
+);
+insert into patient_phone values(101,9672371563);
+insert into patient_phone values(102,9636138563);
+insert into patient_phone values(103,9632631563);
+insert into patient_phone values(102,9653637563);
+insert into patient_phone values(103,9673153893);
+insert into patient_phone values(104,9645342363);
+insert into patient_phone values(102,9634523463);
+insert into patient_phone values(105,9835372283);
+insert into patient_phone values(106,9623632263);
+
+create table account_department
+(bill_id int,
+Treatment_bill_amount int,
+pid int
+);
+insert into account_department values(101,23120,101);
+insert into account_department values(102,26327,103);
+insert into account_department values(103,89273,104);
+insert into account_department values(104,36382,102);
+
+create table medicine
+(bill_id int,
+bill_price int,
+pid int
+);
+insert into medicine values(101,23120,104);
+insert into medicine values(102,26327,102);
+insert into medicine values(103,89273,104);
+insert into medicine values(104,36382,101);
+insert into medicine values(103,89273,103);
+insert into medicine values(104,36382,101);
+
+2.
+select d.name as doctor_name,p.name as patient_name,dept.name as department_name 
+from doctor d,patient p,dept 
+where d.dept_id=dept.dept_id and p.did=d.did;
+
+//Output:-
+Raj|Amit|Cardiology
+Raj|Rahul|Cardiology
+Raj|Rohit|Cardiology
+Mathur|Aman|Cardiology
+Mathur|Janu|Cardiology
+Mathur|Manish|Cardiology
+Mathur|Raju|Cardiology
+Harsh|Ayushi|Oncology
+Harsh|Sohail|Oncology
+Rahul|Mahesh|Neurology
+
+3.
+select discharge,count(*) from patient where discharge>"12/07/2020" group by discharge;
+
+//Output:-
+13-06-2020|1
+13-07-2020|1
+14-07-2020|2
+19-07-2020|2

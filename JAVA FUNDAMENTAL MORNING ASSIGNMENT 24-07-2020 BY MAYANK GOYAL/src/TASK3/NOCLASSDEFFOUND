@@ -1,0 +1,9 @@
+NOCLASSDEFFOUND is an error not an exception which is generate at runtime when a .class is missing at runtime but compiler make it
+But it is not available at run time...
+Example Let there are two classes A and B and we compile these classes and compiler generate these two classes in .class form
+and I delete that file from the folder through manually or through command then at the runtime when interpreter try to find that file
+but it is not available at that time because we have already delete it from the folder that's why it generate error(NOCLASSDEFFOUND)
+
+
+
+@copyright MAYANK GOYAL

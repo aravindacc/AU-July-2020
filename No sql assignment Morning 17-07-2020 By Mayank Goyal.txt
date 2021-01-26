@@ -1,0 +1,8 @@
+1.SELECT t.id , v FROM `travel-sample` t UNNEST reviews v WHERE t.type="hotel" and v.ratings.Cleanliness>=4;
+
+
+2.select country, max(geo.alt) from `travel-sample` where type="airport" group by country;
+
+
+
+3.select * from `travel-sample` where city="Marseille" and country="France";
